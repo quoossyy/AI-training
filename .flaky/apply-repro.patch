@@ -1,0 +1,23 @@
+diff --git a/fixtures/index.ts b/fixtures/index.ts
+index 9b9708f..ffa328d 100644
+--- a/fixtures/index.ts
++++ b/fixtures/index.ts
+@@ -3,6 +3,7 @@ import { AuthHelper } from '../helpers/auth.helper';
+ import { LoginPage } from '../pages/login/login.page';
+ import { AccountOverviewPage } from '../pages/account/overview.page';
+ import { StorePage } from '../pages/store/store.page';
++import { applyReproCondition } from '../.claude/skills/flaky-tests/templates/playwright/repro-conditions';
+ 
+ type AuthFixtures = {
+   authHelper: AuthHelper;
+@@ -12,6 +13,10 @@ type AuthFixtures = {
+ };
+ 
+ export const test = base.extend<AuthFixtures>({
++  page: async ({ page, baseURL }, use) => {
++    await applyReproCondition(page, baseURL);
++    await use(page);
++  },
+   authHelper: async ({ page }, use) => {
+     await use(new AuthHelper(page));
+   },
