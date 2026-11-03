@@ -1,0 +1,6 @@
+    Error: Missing env variable ADMIN_EMAIL. Copy .env.example to .env and fill it in.
+    > 4 |     throw new Error(`Missing env variable ${name}. Copy .env.example to .env and fill it in.`);
+    test-results\auth-admin.setup.ts-open-stand-session-and-log-in-to-admin-setup\test-failed-1.png
+  1 failed
+  2 did not run
+  1 passed (5.4s)

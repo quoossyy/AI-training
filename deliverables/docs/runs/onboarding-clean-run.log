@@ -1,0 +1,74 @@
+﻿=== Step 1: node -v
+v24.19.0
+=== Step 3: npm ci
+exit=0
+
+added 104 packages, and audited 105 packages in 35s
+
+
+=== Step 4: npx playwright install chromium
+exit=0
+=== Step 5: Copy-Item .env.example .env (+ values of my stand, not logged)
+keys filled: SESSION_URL, ADMIN_PASSWORD, ADMIN_EMAIL
+git status --short (must not list .env):
+ M README.md
+ M package-lock.json
+ M package.json
+?? docs/
+=== Step 6: npm run lint
+exit=0
+
+> ai-training@1.0.0 lint
+> eslint .
+
+=== Step 6: npm run typecheck
+exit=0
+
+> ai-training@1.0.0 typecheck
+> tsc
+
+=== Step 7: npx playwright test --project=setup
+exit=0
+  ok 1 [setup] › tests\auth\admin.setup.ts:8:6 › open stand session and log in to admin (3.0s)
+  ok 2 [setup] › tests\auth\global.setup.ts:7:6 › open stand session and register customer (2.4s)
+  2 passed (6.4s)
+playwright/.auth:
+admin.json, customer-data.json, customer.json, session.json
+=== Step 8: npm test
+exit=0
+Running 7 tests using 1 worker
+  ok 1 [setup] › tests\auth\admin.setup.ts:8:6 › open stand session and log in to admin (2.9s)
+  ok 2 [setup] › tests\auth\global.setup.ts:7:6 › open stand session and register customer (2.3s)
+  ok 3 [chromium] › tests\account\profile-navigation.spec.ts:4:7 › Account navigation › ACC-01: profile page opens from the account navigation (1.1s)
+  ok 4 [chromium] › tests\auth\login.spec.ts:8:7 › Login › AUTH-01: customer logs in with valid credentials (1.5s)
+  ok 5 [chromium] › tests\auth\login.spec.ts:16:7 › Login › AUTH-02: error is shown for a wrong password (1.4s)
+  ok 6 [admin] › tests\admin\admin.spec.ts:9:9 › Admin › Login › ADM-01: admin logs in with valid credentials (2.5s)
+  ok 7 [admin] › tests\admin\admin.spec.ts:18:7 › Admin › ADM-02: customer registered on the storefront is listed in admin (2.0s)
+  7 passed (15.9s)
+=== Step 8: one file with --no-deps
+exit=0
+Running 2 tests using 1 worker
+  2 passed (3.3s)
+=== Step 9: report artefacts
+playwright-report/index.html exists: False
+test-results/results.json exists: False
+=== Done-when: git status --short
+ M README.md
+ M package-lock.json
+ M package.json
+?? docs/
+=== Step 8 (verbatim, config reporters): npm test
+exit=0
+
+[6/7] [admin] › tests\admin\admin.spec.ts:9:9 › Admin › Login › ADM-01: admin logs in with valid credentials
+[7/7] [admin] › tests\admin\admin.spec.ts:18:7 › Admin › ADM-02: customer registered on the storefront is listed in admin
+  7 passed (15.6s)
+=== Step 9: report artefacts
+playwright-report/index.html exists: True
+test-results/results.json exists: True
+results.json stats: expected=7 unexpected=0 skipped=0
+git status --short (.env and playwright/ must not be listed):
+ M README.md
+ M package-lock.json
+ M package.json
+?? docs/

@@ -1,0 +1,7 @@
+# check-doc-refs: 1 doc(s), scripts=[test,test:headed,test:ui,report,lint,typecheck], projects=[setup,chromium,admin], min Node=20.19 (@eslint/js (^20.19.0 || ^22.13.0 || >=24))
+
+info  README.md:29  `test-results/results.json` is generated/gitignored (not in a clean clone)
+ERROR README.md:81  claims Node 18.0+ but @eslint/js (^20.19.0 || ^22.13.0 || >=24) needs at least 20.19
+info  README.md:174  `test-results/results.json` is generated/gitignored (not in a clean clone)
+
+1 error(s), 0 warning(s), 2 info

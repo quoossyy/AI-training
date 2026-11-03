@@ -1,0 +1,16 @@
+# check-doc-refs: 4 doc(s), scripts=[test,test:headed,test:ui,report,lint,typecheck], projects=[setup,chromium,admin], min Node=20.19 (@eslint/js (^20.19.0 || ^22.13.0 || >=24))
+
+info  README.md:32  `test-results/results.json` is generated/gitignored (not in a clean clone)
+info  README.md:199  `test-results/results.json` is generated/gitignored (not in a clean clone)
+info  docs\ARCHITECTURE.md:12  `test-results/results.json` is generated/gitignored (not in a clean clone)
+info  docs\ARCHITECTURE.md:30  file name `results.json` not found in repo (generated at runtime?)
+info  docs\ARCHITECTURE.md:101  file name `.component.ts` not found in repo (generated at runtime?)
+info  docs\CHANGELOG.md:16  `BASE_URL` looks like an env var but is not in .env.example
+info  docs\CHANGELOG.md:33  `test-results/results.json` is generated/gitignored (not in a clean clone)
+info  docs\CHANGELOG.md:40  `BASE_URL` looks like an env var but is not in .env.example
+info  docs\CHANGELOG.md:45  historical path `fixtures/auth.fixtures.ts` (no longer in repo)
+info  docs\CHANGELOG.md:46  historical path `tests/auth/auth.login.spec.ts` (no longer in repo)
+info  docs\CHANGELOG.md:57  historical path `fixtures/auth.fixtures.ts` (no longer in repo)
+info  docs\CHANGELOG.md:57  file name `auth.login.spec.ts` not found in repo (generated at runtime?)
+
+0 error(s), 0 warning(s), 12 info

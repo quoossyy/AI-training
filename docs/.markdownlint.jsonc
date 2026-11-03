@@ -1,0 +1,7 @@
+// Project docs: long table rows are intentional (one fact per row), table pipe style follows the README.
+{
+  "MD013": false,
+  "MD060": false,
+  // Changelog releases repeat the same sub-headings ("Breaking: how to run", ...)
+  "MD024": { "siblings_only": true }
+}

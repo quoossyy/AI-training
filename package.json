@@ -2,6 +2,9 @@
   "name": "ai-training",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
