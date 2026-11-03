@@ -1,0 +1,14 @@
+
+Running 9 tests using 1 worker
+
+  ok 1 [setup] › tests\auth\admin.setup.ts:8:6 › open stand session and log in to admin (3.9s)
+  ok 2 [setup] › tests\auth\global.setup.ts:7:6 › open stand session and register customer (4.7s)
+  ok 3 [chromium] › tests\account\addresses.spec.ts:5:7 › Addresses › ACC-02: new address is added to the address book (11.6s)
+  ok 4 [chromium] › tests\account\addresses.spec.ts:21:7 › Addresses › ACC-03: address with empty required fields is not saved (3.4s)
+  ok 5 [chromium] › tests\account\profile-navigation.spec.ts:4:7 › Account navigation › ACC-01: profile page opens from the account navigation (2.7s)
+  ok 6 [chromium] › tests\auth\login.spec.ts:8:7 › Login › AUTH-01: customer logs in with valid credentials (3.8s)
+  ok 7 [chromium] › tests\auth\login.spec.ts:16:7 › Login › AUTH-02: error is shown for a wrong password (3.1s)
+  ok 8 [admin] › tests\admin\admin.spec.ts:9:9 › Admin › Login › ADM-01: admin logs in with valid credentials (2.8s)
+  ok 9 [admin] › tests\admin\admin.spec.ts:18:7 › Admin › ADM-02: customer registered on the storefront is listed in admin (2.7s)
+
+  9 passed (40.9s)

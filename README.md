@@ -37,7 +37,8 @@ AI-training/
 ├── config/
 │   └── env.ts                       # Env variables + storageState paths
 ├── data/
-│   └── customer.ts                  # Test data factory (unique customer)
+│   ├── customer.ts                  # Test data factory (unique customer)
+│   └── address.ts                   # Test data factory (unique address)
 ├── pages/                           # Page Objects — selectors live ONLY here
 │   ├── login/
 │   │   ├── login.page.ts
@@ -50,7 +51,10 @@ AI-training/
 │   └── account/
 │       ├── account-nav.component.ts # Side nav shared by /dk/account/* pages
 │       ├── overview.page.ts
-│       └── profile.page.ts
+│       ├── profile.page.ts
+│       ├── addresses.page.ts
+│       ├── add-address-modal.component.ts # "Add address" dialog (portal, scoped from page)
+│       └── address-card.component.ts      # One saved address card
 ├── helpers/
 │   ├── auth.helper.ts               # Open session link, register customer
 │   └── customer.helper.ts           # Save/load the customer created in setup
@@ -64,7 +68,8 @@ AI-training/
 │   ├── admin/
 │   │   └── admin.spec.ts
 │   └── account/
-│       └── profile-navigation.spec.ts
+│       ├── profile-navigation.spec.ts
+│       └── addresses.spec.ts
 ├── playwright/.auth/                # Saved sessions (gitignored)
 ├── .env.example
 ├── eslint.config.mjs
@@ -156,6 +161,8 @@ test.use({ storageState: SESSION_STORAGE_STATE });
 | AUTH-01 | Customer logs in with valid credentials        | `tests/auth/login.spec.ts`              | ✅     |
 | AUTH-02 | Error is shown for a wrong password            | `tests/auth/login.spec.ts`              | ✅     |
 | ACC-01  | Profile page opens from the account navigation | `tests/account/profile-navigation.spec.ts` | ✅  |
+| ACC-02  | New address is added to the address book       | `tests/account/addresses.spec.ts`       | ✅     |
+| ACC-03  | Address with empty required fields is not saved | `tests/account/addresses.spec.ts`      | ✅     |
 | ADM-01  | Admin logs in with valid credentials           | `tests/admin/admin.spec.ts`             | ✅     |
 | ADM-02  | Customer registered on the storefront is listed in admin | `tests/admin/admin.spec.ts`   | ✅     |
 

@@ -1,6 +1,7 @@
 import { Page, Locator } from '@playwright/test';
 import { AccountNav } from './account-nav.component';
 import { ProfilePage } from './profile.page';
+import { AddressesPage } from './addresses.page';
 
 export class AccountOverviewPage {
   readonly page: Page;
@@ -28,5 +29,12 @@ export class AccountOverviewPage {
   async openProfile(): Promise<ProfilePage> {
     await this.nav.profileLink.click();
     return new ProfilePage(this.page);
+  }
+
+  async openAddresses(): Promise<AddressesPage> {
+    await this.nav.addressesLink.click();
+    const addressesPage = new AddressesPage(this.page);
+    await addressesPage.waitForLoaded();
+    return addressesPage;
   }
 }
