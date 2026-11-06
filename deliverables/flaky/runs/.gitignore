@@ -1,0 +1,3 @@
+# Local only: logs of failed runs, Playwright traces (they carry the stand session link), scratch.
+_local/
+*.zip

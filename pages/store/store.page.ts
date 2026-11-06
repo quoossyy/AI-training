@@ -29,18 +29,34 @@ export class StorePage {
     await this.page.goto('/dk/store');
   }
 
-  /** Waits until the client-rendered list has painted at least one card. */
+  /**
+   * Waits until at least one card is painted. The list is server-rendered, so this
+   * means "HTML arrived", not "the page reacts to clicks".
+   */
   async waitForLoaded() {
     await this.productCards.first().waitFor({ state: 'visible' });
   }
 
-  /** Product names in the order they are currently rendered. */
+  /** Product names in the order they are currently rendered (single read, no waiting). */
   async productNames(): Promise<string[]> {
     return this.productTitles.allTextContents();
   }
 
-  /** Clicks a sort option by its visible label. */
+  /** Product prices as numbers, in rendered order (single read, no waiting). */
+  async productPriceValues(): Promise<number[]> {
+    const prices = await this.productPrices.allTextContents();
+    return prices.map((price) => Number(price.replace(/[^\d.]/g, '')));
+  }
+
+  /**
+   * Clicks a sort option by its visible label and waits for the result of the
+   * click — the URL changing to the new `?sortBy=` — instead of returning while
+   * the re-sorted list is still in flight. A click that never takes effect
+   * fails here with a navigation timeout rather than on a stale list later.
+   */
   async sortBy(label: string) {
+    const before = this.page.url();
     await this.sortOptions.filter({ hasText: label }).first().click();
+    await this.page.waitForURL((url) => url.href !== before);
   }
 }

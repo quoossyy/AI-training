@@ -1,0 +1,970 @@
+{
+  "_meta": {
+    "phase": "before",
+    "condition": "base",
+    "block": "3",
+    "command": "npx playwright test --retries=0 --reporter=list,json --trace retain-on-failure --project=flaky --grep STORE-02: --repeat-each 10 --workers=1",
+    "cwd": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before",
+    "git": {
+      "sha": "dee3b18ecb82a71005c9c3a794b5303443c3c3cf",
+      "branch": "HEAD",
+      "dirty": false,
+      "dirtyFiles": []
+    },
+    "env": {
+      "BASE_URL": "https://qa-sandbox.inno.ws"
+    },
+    "runnerVersion": "Version 1.63.0",
+    "browserVersion": "chromium 153.0.8010.12",
+    "host": {
+      "platform": "win32",
+      "node": "v24.19.0",
+      "cpus": 8
+    },
+    "startedAt": "2026-11-05T15:23:50.453Z",
+    "finishedAt": "2026-11-05T15:24:19.091Z",
+    "exitCode": 1,
+    "snapshot": {
+      "command": "node .claude/skills/flaky-tests/scripts/list-snapshot.mjs --gate-env SESSION_LINK --item [data-testid=product-wrapper] --field [data-testid=product-title] --field [data-testid=price] default=dk/store price_desc=dk/store?sortBy=price_desc",
+      "hash": "63534fb18fdfd425cc26d1e492aaa01a1f3c1059792e8c991f4db79775bff80d",
+      "changedDuringRun": false,
+      "content": "{\n  \"default\": [\n    \"Medusa Sweatshirt €10.00\",\n    \"Medusa Shorts €10.00\",\n    \"Medusa Sweatpants €10.00\",\n    \"Medusa T-Shirt €10.00\"\n  ],\n  \"price_desc\": [\n    \"Medusa T-Shirt €10.00\",\n    \"Medusa Shorts €10.00\",\n    \"Medusa Sweatpants €10.00\",\n    \"Medusa Sweatshirt €10.00\"\n  ]\n}"
+    },
+    "report": "deliverables/flaky/runs/before/2026-11-05_base_3.json",
+    "log": "deliverables/flaky/runs/_local/before/2026-11-05_base_3.log"
+  },
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--retries=0",
+      "--reporter=list,json",
+      "--trace",
+      "retain-on-failure",
+      "--project=flaky",
+      "--grep",
+      "STORE-02:",
+      "--repeat-each",
+      "10",
+      "--workers=1"
+    ],
+    "configFile": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\playwright.config.ts",
+    "rootDir": "C:/Users/user1/AppData/Local/Temp/claude/c47a99821078cdbf/9994c121-ea4b-46d9-8255-3b4bc287faf2/scratchpad/wt-before/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user1/AppData/Local/Temp/claude/c47a99821078cdbf/9994c121-ea4b-46d9-8255-3b4bc287faf2/scratchpad/wt-before/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "setup",
+        "name": "setup",
+        "testDir": "C:/Users/user1/AppData/Local/Temp/claude/c47a99821078cdbf/9994c121-ea4b-46d9-8255-3b4bc287faf2/scratchpad/wt-before/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.setup\\.ts/"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/user1/AppData/Local/Temp/claude/c47a99821078cdbf/9994c121-ea4b-46d9-8255-3b4bc287faf2/scratchpad/wt-before/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user1/AppData/Local/Temp/claude/c47a99821078cdbf/9994c121-ea4b-46d9-8255-3b4bc287faf2/scratchpad/wt-before/tests",
+        "testIgnore": [
+          "/store\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/user1/AppData/Local/Temp/claude/c47a99821078cdbf/9994c121-ea4b-46d9-8255-3b4bc287faf2/scratchpad/wt-before/test-results",
+        "repeatEach": 10,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "flaky",
+        "name": "flaky",
+        "testDir": "C:/Users/user1/AppData/Local/Temp/claude/c47a99821078cdbf/9994c121-ea4b-46d9-8255-3b4bc287faf2/scratchpad/wt-before/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/store\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth\\global.setup.ts",
+      "file": "auth/global.setup.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "authenticate as admin",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "setup",
+              "projectName": "setup",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2256,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T15:23:55.099Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "55c05845c2d608359ffd-dea528078d72587e5f75",
+          "file": "auth/global.setup.ts",
+          "line": 5,
+          "column": 6
+        }
+      ]
+    },
+    {
+      "title": "store\\store.spec.ts",
+      "file": "store/store.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Store listing @flaky",
+          "file": "store/store.spec.ts",
+          "line": 23,
+          "column": 6,
+          "specs": [
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1017,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22",
+                        "location": {
+                          "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                          "column": 22,
+                          "line": 57
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mconst\u001b[39m names \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m storePage\u001b[33m.\u001b[39mproductNames()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m     expect(names[\u001b[35m0\u001b[39m])\u001b[33m.\u001b[39mtoBe(\u001b[32m'Medusa T-Shirt'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n \u001b[90m 60 |\u001b[39m   test(\u001b[32m'STORE-03: the listing renders exactly four products'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ storePage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                            "column": 22,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n\n  55 |\n  56 |     const names = await storePage.productNames();\n> 57 |     expect(names[0]).toBe('Medusa T-Shirt');\n     |                      ^\n  58 |   });\n  59 |\n  60 |   test('STORE-03: the listing renders exactly four products', async ({ storePage }) => {\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-05T15:23:58.203Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                        "column": 22,
+                        "line": 57
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-46211bc8d613a0929737",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1079,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22",
+                        "location": {
+                          "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                          "column": 22,
+                          "line": 57
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mconst\u001b[39m names \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m storePage\u001b[33m.\u001b[39mproductNames()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m     expect(names[\u001b[35m0\u001b[39m])\u001b[33m.\u001b[39mtoBe(\u001b[32m'Medusa T-Shirt'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n \u001b[90m 60 |\u001b[39m   test(\u001b[32m'STORE-03: the listing renders exactly four products'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ storePage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                            "column": 22,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n\n  55 |\n  56 |     const names = await storePage.productNames();\n> 57 |     expect(names[0]).toBe('Medusa T-Shirt');\n     |                      ^\n  58 |   });\n  59 |\n  60 |   test('STORE-03: the listing renders exactly four products', async ({ storePage }) => {\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-05T15:24:00.034Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat1\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat1\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat1\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                        "column": 22,
+                        "line": 57
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-66323f86b826514a67e7",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1119,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22",
+                        "location": {
+                          "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                          "column": 22,
+                          "line": 57
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mconst\u001b[39m names \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m storePage\u001b[33m.\u001b[39mproductNames()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m     expect(names[\u001b[35m0\u001b[39m])\u001b[33m.\u001b[39mtoBe(\u001b[32m'Medusa T-Shirt'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n \u001b[90m 60 |\u001b[39m   test(\u001b[32m'STORE-03: the listing renders exactly four products'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ storePage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                            "column": 22,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n\n  55 |\n  56 |     const names = await storePage.productNames();\n> 57 |     expect(names[0]).toBe('Medusa T-Shirt');\n     |                      ^\n  58 |   });\n  59 |\n  60 |   test('STORE-03: the listing renders exactly four products', async ({ storePage }) => {\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-05T15:24:02.024Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat2\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat2\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat2\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                        "column": 22,
+                        "line": 57
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-589a4657c9cf4ad26aab",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1059,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22",
+                        "location": {
+                          "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                          "column": 22,
+                          "line": 57
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mconst\u001b[39m names \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m storePage\u001b[33m.\u001b[39mproductNames()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m     expect(names[\u001b[35m0\u001b[39m])\u001b[33m.\u001b[39mtoBe(\u001b[32m'Medusa T-Shirt'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n \u001b[90m 60 |\u001b[39m   test(\u001b[32m'STORE-03: the listing renders exactly four products'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ storePage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                            "column": 22,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n\n  55 |\n  56 |     const names = await storePage.productNames();\n> 57 |     expect(names[0]).toBe('Medusa T-Shirt');\n     |                      ^\n  58 |   });\n  59 |\n  60 |   test('STORE-03: the listing renders exactly four products', async ({ storePage }) => {\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-05T15:24:03.989Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat3\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat3\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat3\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                        "column": 22,
+                        "line": 57
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-e512e3a081076b79cc21",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 998,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22",
+                        "location": {
+                          "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                          "column": 22,
+                          "line": 57
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mconst\u001b[39m names \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m storePage\u001b[33m.\u001b[39mproductNames()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m     expect(names[\u001b[35m0\u001b[39m])\u001b[33m.\u001b[39mtoBe(\u001b[32m'Medusa T-Shirt'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n \u001b[90m 60 |\u001b[39m   test(\u001b[32m'STORE-03: the listing renders exactly four products'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ storePage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                            "column": 22,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n\n  55 |\n  56 |     const names = await storePage.productNames();\n> 57 |     expect(names[0]).toBe('Medusa T-Shirt');\n     |                      ^\n  58 |   });\n  59 |\n  60 |   test('STORE-03: the listing renders exactly four products', async ({ storePage }) => {\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-05T15:24:05.800Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat4\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat4\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat4\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                        "column": 22,
+                        "line": 57
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-9b086c9ea00cb3af8506",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1024,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22",
+                        "location": {
+                          "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                          "column": 22,
+                          "line": 57
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mconst\u001b[39m names \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m storePage\u001b[33m.\u001b[39mproductNames()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m     expect(names[\u001b[35m0\u001b[39m])\u001b[33m.\u001b[39mtoBe(\u001b[32m'Medusa T-Shirt'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n \u001b[90m 60 |\u001b[39m   test(\u001b[32m'STORE-03: the listing renders exactly four products'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ storePage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                            "column": 22,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n\n  55 |\n  56 |     const names = await storePage.productNames();\n> 57 |     expect(names[0]).toBe('Medusa T-Shirt');\n     |                      ^\n  58 |   });\n  59 |\n  60 |   test('STORE-03: the listing renders exactly four products', async ({ storePage }) => {\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-05T15:24:07.655Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat5\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat5\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat5\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                        "column": 22,
+                        "line": 57
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-e0c77f939706e11c3dc0",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1347,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22",
+                        "location": {
+                          "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                          "column": 22,
+                          "line": 57
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mconst\u001b[39m names \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m storePage\u001b[33m.\u001b[39mproductNames()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m     expect(names[\u001b[35m0\u001b[39m])\u001b[33m.\u001b[39mtoBe(\u001b[32m'Medusa T-Shirt'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n \u001b[90m 60 |\u001b[39m   test(\u001b[32m'STORE-03: the listing renders exactly four products'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ storePage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                            "column": 22,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n\n  55 |\n  56 |     const names = await storePage.productNames();\n> 57 |     expect(names[0]).toBe('Medusa T-Shirt');\n     |                      ^\n  58 |   });\n  59 |\n  60 |   test('STORE-03: the listing renders exactly four products', async ({ storePage }) => {\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-05T15:24:09.784Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat6\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat6\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat6\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                        "column": 22,
+                        "line": 57
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-fb9c19b45472d7f6e4e8",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1037,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22",
+                        "location": {
+                          "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                          "column": 22,
+                          "line": 57
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mconst\u001b[39m names \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m storePage\u001b[33m.\u001b[39mproductNames()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m     expect(names[\u001b[35m0\u001b[39m])\u001b[33m.\u001b[39mtoBe(\u001b[32m'Medusa T-Shirt'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n \u001b[90m 60 |\u001b[39m   test(\u001b[32m'STORE-03: the listing renders exactly four products'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ storePage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                            "column": 22,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n\n  55 |\n  56 |     const names = await storePage.productNames();\n> 57 |     expect(names[0]).toBe('Medusa T-Shirt');\n     |                      ^\n  58 |   });\n  59 |\n  60 |   test('STORE-03: the listing renders exactly four products', async ({ storePage }) => {\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-05T15:24:12.540Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat7\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat7\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat7\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                        "column": 22,
+                        "line": 57
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-662322dd83f7949cae99",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1383,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22",
+                        "location": {
+                          "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                          "column": 22,
+                          "line": 57
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mconst\u001b[39m names \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m storePage\u001b[33m.\u001b[39mproductNames()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m     expect(names[\u001b[35m0\u001b[39m])\u001b[33m.\u001b[39mtoBe(\u001b[32m'Medusa T-Shirt'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n \u001b[90m 60 |\u001b[39m   test(\u001b[32m'STORE-03: the listing renders exactly four products'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ storePage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                            "column": 22,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n\n  55 |\n  56 |     const names = await storePage.productNames();\n> 57 |     expect(names[0]).toBe('Medusa T-Shirt');\n     |                      ^\n  58 |   });\n  59 |\n  60 |   test('STORE-03: the listing renders exactly four products', async ({ storePage }) => {\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-05T15:24:15.288Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat8\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat8\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat8\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                        "column": 22,
+                        "line": 57
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-3c79e73cab0bb57e4a2e",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1150,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22",
+                        "location": {
+                          "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                          "column": 22,
+                          "line": 57
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mconst\u001b[39m names \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m storePage\u001b[33m.\u001b[39mproductNames()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m     expect(names[\u001b[35m0\u001b[39m])\u001b[33m.\u001b[39mtoBe(\u001b[32m'Medusa T-Shirt'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n \u001b[90m 60 |\u001b[39m   test(\u001b[32m'STORE-03: the listing renders exactly four products'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ storePage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                            "column": 22,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"Medusa \u001b[7mT-S\u001b[27mhirt\"\u001b[39m\nReceived: \u001b[31m\"Medusa \u001b[7mSweats\u001b[27mhirt\"\u001b[39m\n\n  55 |\n  56 |     const names = await storePage.productNames();\n> 57 |     expect(names[0]).toBe('Medusa T-Shirt');\n     |                      ^\n  58 |   });\n  59 |\n  60 |   test('STORE-03: the listing renders exactly four products', async ({ storePage }) => {\n    at C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts:57:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-05T15:24:17.512Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat9\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat9\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\test-results\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat9\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before\\tests\\store\\store.spec.ts",
+                        "column": 22,
+                        "line": 57
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-d456d252fc28c5e595d0",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-05T15:23:54.268Z",
+    "duration": 24757.124000000003,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 10,
+    "flaky": 0
+  }
+}

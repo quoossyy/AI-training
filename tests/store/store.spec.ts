@@ -36,7 +36,7 @@ test.describe('Store listing @flaky', () => {
     expect(names[0]).toBe('Medusa Sweatshirt');
   });
 
-  test('STORE-02: price high-to-low puts the T-shirt first', async ({ storePage }) => {
+  test('STORE-02: price high-to-low puts the T-shirt first', async ({ page, storePage }) => {
     // ARCHETYPE: race with client-side hydration — the subtle kind.
     // The sort control is in the server-rendered HTML, so it is clickable
     // before React has attached its handler. Clicking in that window does
@@ -53,8 +53,17 @@ test.describe('Store listing @flaky', () => {
     await storePage.waitForLoaded();
     await storePage.sortBy('Price: High -> Low');
 
-    const names = await storePage.productNames();
-    expect(names[0]).toBe('Medusa T-Shirt');
+    // MEASURED (deliverables/flaky): the click always reached the server; the
+    // test failed because it read the list once, ~5 ms after the sort request
+    // left, before the re-sorted list was rendered. Assert the outcome with
+    // retrying assertions instead of a one-shot read.
+    await expect(page).toHaveURL(/[?&]sortBy=price_desc(&|$)/);
+    await expect(storePage.productTitles.first()).toHaveText('Medusa T-Shirt');
+    // The product guarantee of a price sort. All sandbox prices are equal
+    // (€10.00), so "T-shirt first" rests on the server's tie-break order —
+    // stable today, not promised by the product (question raised to the team).
+    const prices = await storePage.productPriceValues();
+    expect(prices).toEqual([...prices].sort((a, b) => b - a));
   });
 
   test('STORE-03: the listing renders exactly four products', async ({ storePage }) => {

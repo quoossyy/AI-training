@@ -78,7 +78,7 @@ node <skill>/scripts/run-condition.mjs before base \
 ## Матрица прогонов
 
 Все прогоны: **без ретраев**, машиночитаемый отчёт, артефакты (trace/скрин/лог) только для упавших,
-через `run-condition.mjs` (иначе нет `meta.json` и сравнение до/после не к чему привязать).
+через `run-condition.mjs` (иначе нет `_meta` и сравнение до/после не к чему привязать).
 
 | # | Условие | Что меняем | Что ловит |
 |---|---|---|---|
@@ -121,7 +121,10 @@ node <skill>/scripts/run-condition.mjs before base \
 
 ## Именование
 
-`<YYYY-MM-DD>_<phase>_<condition>[_<block>].<json|xml>` + `.log` + `.meta.json` в `runs/` папки артефактов.
+`runs/<phase>/<YYYY-MM-DD>_<condition>[_<block>].json` — **один файл на прогон**, meta в ключе `_meta` (для JUnit XML —
+соседний `.meta.json`). Лог раннера — только у упавших прогонов, в `runs/_local/<phase>/` (git-ignored); trace.zip и
+прочие тяжёлые/секретные артефакты — тоже в `runs/_local/`. Сводка — один `runs/stats.md`
+(`flaky-stats --out runs/stats.md runs/`: phase/condition берутся из `_meta`, блоки суммируются).
 `phase` = `before` / `after` / `repro-*`; `block` — номер блока при чередовании до/после.
 
 ## Чередование до/после (Этап 4)

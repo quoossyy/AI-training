@@ -1,0 +1,5 @@
+// Reports use compact `|---|` table separators and long table rows.
+{
+  "MD013": false,
+  "MD060": false
+}

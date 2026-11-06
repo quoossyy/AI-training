@@ -75,7 +75,7 @@ page: async ({ page, baseURL }, use) => { await applyReproCondition(page, baseUR
 Правка фикстуры — локальный патч проекта: один раз внести импорт + override, `git diff <fixtures> >
 .flaky/apply-repro.patch`, `git checkout <fixtures>`; дальше `git apply .flaky/apply-repro.patch` перед прогоном и
 `git checkout <fixtures>` после. Так одно и то же условие гоняется против кода «до» (worktree) и «после»;
-`meta.json` честно покажет `dirty` и изменённый файл.
+`_meta` отчёта честно покажет `dirty` и изменённый файл.
 
 | `REPRO_CONDITION` | Параметры | Что делает |
 |---|---|---|

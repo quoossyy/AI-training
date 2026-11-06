@@ -9,13 +9,16 @@
 //   - env FLAKY_REPORT, and for --format json also PLAYWRIGHT_JSON_OUTPUT_NAME,
 //     for --format junit also PLAYWRIGHT_JUNIT_OUTPUT_NAME / JEST_JUNIT_OUTPUT_FILE.
 //
-// Writes into --out-dir:
-//   <date>_<phase>_<condition>[_<block>].<json|xml>   the report produced by the runner
-//   ....log                                          runner stdout+stderr
-//   ....meta.json                                    commit, branch, dirty, env vars, versions, times, exit code, snapshot
+// Writes ONE file per run into --out-dir (minimal noise):
+//   <phase>/<date>_<condition>[_<block>].json   runner report + "_meta" key: commit, branch, dirty, env vars,
+//                                               versions, times, exit code, snapshot
+//   <phase>/<date>_<condition>[_<block>].xml    for --format junit; meta goes to a sibling .meta.json (XML can't hold it)
+//   _local/<phase>/<...>.log                    runner stdout+stderr — only when the run failed (exit != 0 or no
+//                                               report); _local/ is git-ignored. Passing runs leave no log.
 //
 // Options:
 //   --out-dir DIR           default deliverables/flaky/runs
+//   --keep-log              always keep the log, next to the report (to commit it)
 //   --format json|junit     report format (default json)
 //   --block ID              suffix for alternating before/after blocks (1, 2, ...)
 //   --meta-env A,B          env vars to record in meta (values only of these; never secrets). Default BASE_URL
@@ -29,8 +32,8 @@
 /* global process, console */
 import { spawn, execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { createWriteStream, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { createWriteStream, existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs';
+import { join, relative, resolve } from 'node:path';
 
 const argv = process.argv.slice(2);
 const sep = argv.indexOf('--');
@@ -45,11 +48,12 @@ if (!command.length) {
   process.exit(2);
 }
 
-const opts = { outDir: 'deliverables/flaky/runs', format: 'json', block: '', metaEnv: ['BASE_URL'], envFile: '.env', versionCmd: '', browserCmd: '', snapshotCmd: '', cwd: process.cwd() };
+const opts = { outDir: 'deliverables/flaky/runs', format: 'json', block: '', metaEnv: ['BASE_URL'], envFile: '.env', versionCmd: '', browserCmd: '', snapshotCmd: '', cwd: process.cwd(), keepLog: false };
 for (let i = 0; i < rest.length; i++) {
   const a = rest[i];
   const v = () => rest[++i];
   if (a === '--out-dir') opts.outDir = v();
+  else if (a === '--keep-log') opts.keepLog = true;
   else if (a === '--format') opts.format = v();
   else if (a === '--block') opts.block = v();
   else if (a === '--meta-env') opts.metaEnv = v().split(',').map((s) => s.trim()).filter(Boolean);
@@ -89,12 +93,15 @@ function readEnvFile(file) {
 
 const date = new Date().toISOString().slice(0, 10);
 const ext = opts.format === 'junit' ? 'xml' : 'json';
-const base = [date, phase, condition, opts.block].filter(Boolean).join('_');
-const outDir = resolve(opts.cwd, opts.outDir);
+const base = [date, condition, opts.block].filter(Boolean).join('_');
+const runsDir = resolve(opts.cwd, opts.outDir);
+const outDir = join(runsDir, phase);
+const localDir = join(runsDir, '_local', phase);
 mkdirSync(outDir, { recursive: true });
+mkdirSync(localDir, { recursive: true });
 const reportPath = join(outDir, `${base}.${ext}`);
-const logPath = join(outDir, `${base}.log`);
-const metaPath = join(outDir, `${base}.meta.json`);
+const logPath = join(localDir, `${base}.log`);
+const metaPath = join(outDir, `${base}.meta.json`); // junit only
 if (existsSync(reportPath)) {
   console.error(`${reportPath} already exists — pass a different --block, refusing to overwrite raw data.`);
   process.exit(2);
@@ -139,7 +146,7 @@ const child = spawn(cmdLine, { cwd: opts.cwd, env, shell: true, stdio: ['inherit
 child.stdout.on('data', (d) => (process.stdout.write(d), log.write(d)));
 child.stderr.on('data', (d) => (process.stderr.write(d), log.write(d)));
 const exitCode = await new Promise((res) => child.on('close', res));
-log.end();
+await new Promise((res) => log.end(res));
 
 meta.finishedAt = new Date().toISOString();
 meta.exitCode = exitCode;
@@ -150,8 +157,33 @@ if (opts.snapshotCmd) {
   meta.snapshot = { command: opts.snapshotCmd, hash: hash(after), changedDuringRun: hash(after) !== hash(snapBefore), content: after };
   if (meta.snapshot.changedDuringRun) meta.snapshot.contentBefore = snapBefore;
 }
-meta.report = existsSync(reportPath) ? reportPath : null;
-writeFileSync(metaPath, JSON.stringify(meta, null, 2) + '\n');
+const rel = (p) => relative(opts.cwd, p).replaceAll('\\', '/');
+meta.report = existsSync(reportPath) ? rel(reportPath) : null;
 
-console.log(`[run-condition] exit ${exitCode}; report ${meta.report ?? 'MISSING'}; meta ${metaPath}`);
+// Log: dropped for clean runs, kept in git-ignored _local/ for failed ones, next to the report with --keep-log.
+const failed = exitCode !== 0 || !meta.report;
+let keptLog = null;
+if (opts.keepLog) {
+  keptLog = join(outDir, `${base}.log`);
+  renameSync(logPath, keptLog);
+} else if (failed) keptLog = logPath;
+else rmSync(logPath, { force: true });
+meta.log = keptLog ? rel(keptLog) : null;
+
+let metaWhere;
+if (meta.report && ext === 'json') {
+  try {
+    const report = JSON.parse(readFileSync(reportPath, 'utf8'));
+    writeFileSync(reportPath, JSON.stringify({ _meta: meta, ...report }, null, 2) + '\n');
+    metaWhere = `${meta.report} (_meta)`;
+  } catch {
+    /* unparsable report — fall back to a sibling file */
+  }
+}
+if (!metaWhere) {
+  writeFileSync(metaPath, JSON.stringify(meta, null, 2) + '\n');
+  metaWhere = rel(metaPath);
+}
+
+console.log(`[run-condition] exit ${exitCode}; report ${meta.report ?? 'MISSING'}; meta ${metaWhere}; log ${meta.log ?? '—'}`);
 process.exit(meta.report ? 0 : 2);

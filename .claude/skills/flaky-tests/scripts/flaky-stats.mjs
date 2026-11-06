@@ -4,10 +4,13 @@
 // Usage:
 //   node flaky-stats.mjs [options] <phase>:<condition>=<report> [...]
 //   node flaky-stats.mjs [options] <condition>=<report> [...]        (phase defaults to "before")
+//   node flaky-stats.mjs [options] <report|dir> [...]                (phase/condition from the run's meta;
+//                                                                     a dir is scanned recursively, _local/ skipped)
 //
 // Reports: Playwright JSON (*.json) or JUnit XML (*.xml) — JUnit covers pytest, Jest/Vitest (jest-junit),
 // Cypress, Maven/Gradle. Several reports with the same <phase>:<condition> (blocks) are summed.
-// A sibling "<report without ext>.meta.json" written by run-condition.mjs is picked up automatically.
+// Run meta written by run-condition.mjs is read from the report's "_meta" key, or from a sibling
+// "<report without ext>.meta.json" (JUnit / older runs).
 //
 // Options:
 //   --threshold N        runs needed to call a test fixed (default 30)
@@ -25,8 +28,8 @@
 //   FLAKY         passes and target failures -> flaky
 //   noise-only    every run failed on noise  -> no verdict, fix the environment
 /* global process, console */
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { basename } from 'node:path';
+import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs';
+import { basename, join, relative } from 'node:path';
 
 const SETUP_RE = /\b(setup|global\.setup|storageState|login|log in|sign[- ]?in|auth(entication)?|session link|401|403)\b/i;
 const NETWORK_RE = /(net::ERR_|ECONNRESET|ECONNREFUSED|ENOTFOUND|ETIMEDOUT|EAI_AGAIN|socket hang up|\b50[234]\b|NS_ERROR_|Connection ?(Error|refused))/i;
@@ -52,7 +55,7 @@ for (let i = 0; i < argv.length; i++) {
 if (!inputs.length) usage(1);
 
 function usage(code) {
-  console.error('Usage: flaky-stats.mjs [--threshold N] [--grep RE] [--noise setup,network] [--out FILE] <phase>:<condition>=<report> ...');
+  console.error('Usage: flaky-stats.mjs [--threshold N] [--grep RE] [--noise setup,network] [--out FILE] <phase>:<condition>=<report> | <report|dir> ...');
   process.exit(code);
 }
 
@@ -174,19 +177,44 @@ const metas = [];
 const phases = new Set();
 const conditions = [];
 
+// Bare paths (no "label=") are reports or dirs; their label comes from the run meta.
+const isReport = (f) => /\.(json|xml)$/i.test(f) && !/\.meta\.json$/i.test(f);
+function walk(dir) {
+  return readdirSync(dir)
+    .sort()
+    .flatMap((n) => {
+      const p = join(dir, n);
+      if (statSync(p).isDirectory()) return n === '_local' || n.startsWith('.') ? [] : walk(p);
+      return isReport(n) ? [p] : [];
+    });
+}
+const jobs = [];
 for (const input of inputs) {
   const eq = input.indexOf('=');
-  if (eq < 0) usage(1);
-  const label = input.slice(0, eq);
-  const file = input.slice(eq + 1);
+  if (eq >= 0) jobs.push({ label: input.slice(0, eq), file: input.slice(eq + 1) });
+  else if (existsSync(input) && statSync(input).isDirectory()) for (const f of walk(input)) jobs.push({ label: null, file: f, root: input });
+  else if (existsSync(input)) jobs.push({ label: null, file: input });
+  else usage(1);
+}
+
+for (const { label: givenLabel, file, root } of jobs) {
+  const raw = readFileSync(file, 'utf8');
+  const json = /^\s*</.test(raw) ? null : JSON.parse(raw);
+  if (json && !json.suites && !json._meta) continue; // not a test report (e.g. stray JSON in a scanned dir)
+  const { reps, runner } = json ? parsePlaywright(json) : parseJUnit(raw);
+  const meta = json?._meta ?? (existsSync(metaPath(file)) ? JSON.parse(readFileSync(metaPath(file), 'utf8')) : null);
+  let label = givenLabel;
+  if (!label) {
+    if (!meta?.phase || !meta?.condition) {
+      console.error(`${file}: no run meta — pass it as <phase>:<condition>=${file}`);
+      process.exit(1);
+    }
+    label = `${meta.phase}:${meta.condition}`;
+  }
   const [phase, condition] = label.includes(':') ? label.split(':', 2) : ['before', label];
   phases.add(phase);
   if (!conditions.includes(condition)) conditions.push(condition);
-
-  const raw = readFileSync(file, 'utf8');
-  const { reps, runner } = /^\s*</.test(raw) ? parseJUnit(raw) : parsePlaywright(JSON.parse(raw));
-  const meta = existsSync(metaPath(file)) ? JSON.parse(readFileSync(metaPath(file), 'utf8')) : null;
-  metas.push({ phase, condition, file: basename(file), runner, meta });
+  metas.push({ phase, condition, file: root ? relative(root, file).replaceAll('\\', '/') : basename(file), runner, meta });
 
   for (const r of reps) {
     if (opts.grep && !opts.grep.test(r.title)) continue;
@@ -242,7 +270,7 @@ const snaps = new Set(metas.filter((m) => m.meta?.snapshot?.hash).map((m) => m.m
 for (const m of metas) if (m.meta?.snapshot?.changedDuringRun) notes.push(`⚠ ${m.file}: environment snapshot changed during the run`);
 if (snaps.size > 1) notes.push(`⚠ environment snapshot differs between runs (${snaps.size} variants) — compare before trusting before/after`);
 else if (snaps.size === 1) notes.push('Environment snapshot identical across all runs.');
-if (metas.some((m) => !m.meta)) notes.push('Some reports have no .meta.json — commit/env unknown for them.');
+if (metas.some((m) => !m.meta)) notes.push('Some reports have no run meta — commit/env unknown for them.');
 if (notes.length) log('\n' + notes.map((n) => `- ${n}`).join('\n'));
 
 log(`\n## Per test × condition\n`);

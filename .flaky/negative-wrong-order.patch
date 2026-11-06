@@ -1,0 +1,18 @@
+diff --git a/fixtures/index.ts b/fixtures/index.ts
+index 9b9708f..aad7bbf 100644
+--- a/fixtures/index.ts
++++ b/fixtures/index.ts
+@@ -12,6 +12,13 @@ type AuthFixtures = {
+ };
+ 
+ export const test = base.extend<AuthFixtures>({
++  // NEGATIVE CHECK (local only): the URL says price_desc, the server answers with the default order.
++  page: async ({ page }, use) => {
++    await page.route(/[?&]sortBy=price_desc/, (route) =>
++      route.continue({ url: route.request().url().replace('sortBy=price_desc', 'sortBy=created_at') }),
++    );
++    await use(page);
++  },
+   authHelper: async ({ page }, use) => {
+     await use(new AuthHelper(page));
+   },
