@@ -2,7 +2,7 @@
 
 Automated UI tests for the Medusa Store QA Sandbox using **Playwright** and **TypeScript**.
 
-> **Status: DRAFT** — updated with Claude on 2026-11-03 against commit `6b9b877`, pending review by Hanna Koval.
+> **Status: Reviewed by Hanna Koval, 2026-11-06** — drafted with Claude, checked against the code (commit `6b9b877` + `engines`) and on a clean clone of this branch.
 > More docs: [Onboarding](docs/ONBOARDING.md) · [Architecture](docs/ARCHITECTURE.md) · [Changelog](docs/CHANGELOG.md)
 
 ## 🎯 Target
@@ -210,7 +210,7 @@ Key settings in `playwright.config.ts`:
 | `Missing env variable ADMIN_EMAIL` / `ADMIN_PASSWORD` (in `admin.setup.ts`), other tests "did not run" | The admin login is part of `setup`, which every project depends on: fill in the admin credentials too |
 | `The stand rejected SESSION_URL (403)` or the page says "A session link is required" | The link was revoked (new link, stand handed over or released). Take a fresh link from your task, update `.env`, rerun |
 | `The stand does not respond (HTTP 502)` | The link is valid but the stand services are down or still starting. Wait a minute and rerun; if it persists, contact the support of your task |
-| `ENOENT: customer.json` / `customer-data.json` | The sessions were never created: either `setup` failed (see its error) or you ran with `--no-deps` on a fresh checkout. Run `npx playwright test --project=setup` |
+| `ENOENT: customer.json` / `customer-data.json` | You ran with `--no-deps` before the sessions were created (fresh checkout or deleted `playwright/.auth/`). Run `npx playwright test --project=setup`. If `setup` itself fails, the dependent tests are reported as `did not run`, not as `ENOENT` — fix the setup error first |
 | `Strict mode violation` | Element found multiple times — scope it: `getByTestId('parent').getByTestId('child')` |
 | PowerShell script error | Run: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` |
 | Timeout on `fill()` | Wrong selector — use `npx playwright codegen <url>` to find the `data-testid` (storefront) or the role/name (Admin has no `data-testid`) |

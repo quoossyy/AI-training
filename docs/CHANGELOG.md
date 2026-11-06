@@ -1,6 +1,6 @@
 # What changed
 
-> **Status: DRAFT** — drafted by Claude from `git log main --stat`, checked against the diffs on 2026-11-03, pending review by Hanna Koval.
+> **Status: Reviewed by Hanna Koval, 2026-11-06** — drafted with Claude, checked against the code (commit `6b9b877` + `engines`) and on a clean clone of this branch.
 
 Architectural changes on `main`, newest first, for test authors. Update this file in the same PR as the change.
 
@@ -37,7 +37,7 @@ Architectural changes on `main`, newest first, for test authors. Update this fil
 
 ### Breaking: how to run
 
-- **Credentials and base URL moved to `.env`** (`BASE_URL`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` — at that time a storefront account), read through `config/env.ts`; CI reads them from secrets.
+- **Credentials and base URL moved to `.env`** (`BASE_URL`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` — at that time a storefront account), read through `config/env.ts`; CI reads `ADMIN_EMAIL` / `ADMIN_PASSWORD` from secrets and `BASE_URL` from repository variables (`vars.BASE_URL`).
 - **npm scripts added:** `test`, `test:headed`, `test:ui`, `report`, `lint`, `typecheck`.
 
 ### Renames and moves

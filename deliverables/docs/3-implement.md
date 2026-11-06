@@ -29,6 +29,7 @@
 | Абзац про проекты | Верно, но без связи `dependencies` | ✏️ строка `projects` перенесена в таблицу Configuration (D4) |
 
 Остальные правки README сделаны по [2-plan.md](2-plan.md):
+
 - D5: колонка `Automated` и легенда.
 - D6: Troubleshooting — `ADMIN_*`, `ENOENT`, codegen для Admin.
 - D7: правило `test.only`/`test.skip`.
@@ -43,7 +44,7 @@
 
 | TODO / утверждение Claude | Как закрыто |
 |---|---|
-| Какая версия Node — стандарт? | `engines` в `package.json`. Формулировка про `EBADENGINE` уточнена по документации npm (Context7, `/npm/cli/v11.17.0`): корневой `engines` — **advisory**, предупреждение даёт engines зависимостей |
+| Какая версия Node — стандарт? | `engines` в `package.json`. `npm ci` на неподходящем Node печатает `EBADENGINE` и для корневого `engines` (`ai-training`), и для зависимостей. 03.11 по документации npm сделан неверный вывод «корневой — только advisory, без предупреждения»; 06.11 проверено запуском (npm 11.17.0, `engines.node: ">=99"` → `npm warn EBADENGINE … package: x@1.0.0`), формулировка исправлена |
 | Clone URL / как создать приватную копию | «как описано в вашем задании» — процесс задают организаторы, а не репо |
 | `npm install` или `npm ci`? | `npm ci` |
 | Гарантирован ли чистый lint/typecheck? | Проверено на чистом клоне: exit 0 ([4-verify.md](4-verify.md)) |
@@ -62,7 +63,7 @@
 | У Claude | В коде | Правка |
 |---|---|---|
 | «It has six layers», а в таблице 7 | — | ✏️ seven, плюс явная фраза «нет base page / API client / logger» |
-| Нет паттерна навигации | `LoginPage.login()` → `AccountOverviewPage`, `AdminOrdersPage.openCustomers()` → `AdminCustomersPage` и др. (5 переходов) | ✏️ пункт 5 со всеми переходами |
+| Нет паттерна навигации | `LoginPage.login()` → `AccountOverviewPage`, `AdminOrdersPage.openCustomers()` → `AdminCustomersPage` и др. (6 переходов; `RegisterPage.register()` → `AccountOverviewPage` пропущен 03.11 и добавлен 06.11) | ✏️ пункт 5 со всеми переходами; контракт `goto()`/`waitForLoaded()` описан по классам, а не «у каждого» |
 | Setup «saves sessions (inferred)» | `global.setup.ts`, `admin.setup.ts`: `storageState({ path })` в самих setup-файлах | ✏️ шаги setup по файлам, без *inferred* |
 | На диаграмме setup пишет в `.auth` напрямую, связи с `AuthHelper`/`createCustomer` нет | Setup использует `AuthHelper`, `createCustomer`, `saveCustomer`, а не фикстуры | ✏️ рёбра `SETUP → AUTH`, `SETUP → DATA`; `AUTH → LOGIN/ADM` |
 | «Projects depend on setup» как ребро project → spec | Зависимость — между проектами | ✏️ `P_CHROME → P_SETUP`, `P_ADMIN → P_SETUP` |

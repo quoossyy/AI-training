@@ -1,9 +1,9 @@
 # Onboarding: first run of the Medusa Store E2E tests
 
-> **Status: DRAFT** — drafted by Claude, checked against the code on 2026-11-03 (commit `6b9b877` + `engines`), pending review by Hanna Koval.
+> **Status: Reviewed by Hanna Koval, 2026-11-06** — drafted with Claude, checked against the code (commit `6b9b877` + `engines`) and on a clean clone of this branch.
 
 A step-by-step setup for an AQA engineer who clones this repository for the first time.
-Goal: from an empty folder to a first run with an HTML report you can open. Takes about 10 minutes.
+Goal: from an empty folder to a first run with an HTML report you can open. Measured on a clean clone: about 2.5 minutes of commands (most of it `npm ci`) with Chromium already cached; a first Chromium download adds a few minutes.
 
 > The reference tests show code style and architecture, **not** a guaranteed green run: your stand may contain defects in any area. Commands are given for PowerShell; bash equivalents are in comments.
 
@@ -21,7 +21,7 @@ Goal: from an empty folder to a first run with an HTML report you can open. Take
 node -v
 ```
 
-You should see a version in `^20.19.0 || ^22.13.0 || >=24` (for example `v22.13.0` or `v24.x`). This is `engines.node` in `package.json`; it comes from ESLint 10, the strictest dependency. Node 18 does not work. The field is advisory: npm does not stop you, but on a wrong version `npm ci` prints `npm warn EBADENGINE` for `eslint` / `@playwright/test` — treat it as an error and switch Node.
+You should see a version in `^20.19.0 || ^22.13.0 || >=24` (for example `v22.13.0` or `v24.x`). This is `engines.node` in `package.json`; it comes from ESLint 10, the strictest dependency. Node 18 does not work. The field is advisory: npm does not stop you, but on a wrong version `npm ci` prints `npm warn EBADENGINE` — for `ai-training` itself and for `eslint` / `@playwright/test`. Treat it as an error and switch Node.
 
 ## 2. Get the repository
 

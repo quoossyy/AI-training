@@ -1,0 +1,169 @@
+# ONBOARDING verbatim on a clean clone of task/docs @ 6b832e4, 2026-11-06, PowerShell. URLs and emails redacted.
+# Step 9: '-- --port 9323' only pins the default port so the script can GET it; report.out in git status is this script's own redirect file, removed after.
+
+﻿=== 1 node -v  [09:44:35]
+v24.19.0
+
+exit=0  (0s)
+=== 2 git clone (task/docs @ 6b832e4, local fork copy)  [09:44:36]
+git : Cloning into 'AI-training'...
+At line:5 char:61
++ ... rk copy)" { git clone --branch task/docs C:\Users\user1\Desktop\aiRea ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Cloning into 'AI-training'...:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+done.
+6b832e4 Update framework docs against the code and add doc-drift-audit skill
+
+exit=0  (1s)
+=== 2 folders  [09:44:36]
+.claude
+.github
+config
+data
+deliverables
+docs
+fixtures
+helpers
+pages
+tests
+.env.example
+.gitignore
+eslint.config.mjs
+package-lock.json
+package.json
+playwright.config.ts
+README.md
+tsconfig.json
+
+exit=0  (0s)
+=== 3 npm ci  [09:44:36]
+
+added 104 packages, and audited 105 packages in 1m
+
+32 packages are looking for funding
+  run `npm fund` for details
+
+10 moderate severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+exit=0  (78s)
+=== 4 npx playwright install chromium  [09:45:54]
+
+exit=0  (2s)
+=== 5 Copy-Item .env.example .env (+ values of my stand copied from my .env)  [09:45:57]
+
+exit=0  (0s)
+=== 6 npm run lint  [09:45:57]
+
+> ai-training@1.0.0 lint
+> eslint .
+
+
+exit=0  (5s)
+=== 6 npm run typecheck  [09:46:02]
+
+> ai-training@1.0.0 typecheck
+> tsc
+
+
+exit=0  (2s)
+=== 7 npx playwright test --project=setup  [09:46:04]
+
+Running 2 tests using 1 worker
+
+node.exe : (node:35052) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:35052) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] [setup] › tests\auth\admin.setup.ts:8:6 › open stand session and log in to admin
+[2/2] [setup] › tests\auth\global.setup.ts:7:6 › open stand session and register customer
+  2 passed (8.4s)
+admin.json
+customer-data.json
+customer.json
+session.json
+
+exit=0  (11s)
+=== 8 npm test  [09:46:14]
+
+> ai-training@1.0.0 test
+> playwright test
+
+
+Running 7 tests using 1 worker
+
+
+node.exe : (node:29796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:29796) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/7] [setup] › tests\auth\admin.setup.ts:8:6 › open stand session and log in to admin
+[2/7] [setup] › tests\auth\global.setup.ts:7:6 › open stand session and register customer
+(node:48032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/7] [chromium] › tests\account\profile-navigation.spec.ts:4:7 › Account navigation › ACC-01: profile page opens from the account navigation
+[4/7] [chromium] › tests\auth\login.spec.ts:8:7 › Login › AUTH-01: customer logs in with valid credentials
+[5/7] [chromium] › tests\auth\login.spec.ts:16:7 › Login › AUTH-02: error is shown for a wrong password
+(node:56620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[6/7] [admin] › tests\admin\admin.spec.ts:9:9 › Admin › Login › ADM-01: admin logs in with valid credentials
+[7/7] [admin] › tests\admin\admin.spec.ts:18:7 › Admin › ADM-02: customer registered on the storefront is listed in admin
+  7 passed (20.6s)
+
+exit=0  (25s)
+=== 8 login.spec --no-deps  [09:46:40]
+
+Running 2 tests using 1 worker
+
+node.exe : (node:38020) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:38020) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] [chromium] › tests\auth\login.spec.ts:8:7 › Login › AUTH-01: customer logs in with valid credentials
+[2/2] [chromium] › tests\auth\login.spec.ts:16:7 › Login › AUTH-02: error is shown for a wrong password
+  2 passed (8.9s)
+
+exit=0  (13s)
+total until report: 137s
+=== 9 npm run report  [09:53:04]
+
+> ai-training@1.0.0 report
+> playwright show-report --port 9323
+
+
+[36m  Serving HTML report at http://localhost:9323. Press Ctrl+C to quit.[39m
+
+HTTP GET http://localhost:9323 -> 200, title: Playwright Test Report
+=== Done-when: git status --short  [09:53:07]
+?? report.out
+(empty = .env and playwright/ not shown)

@@ -5,7 +5,7 @@
 ## База
 
 - Ветка `task/docs` от `main` @ `6b9b877` (2026-10-23, «Merge PR #2 base-session-flow»).
-- Документация на входе: только [`README.md`](../../README.md) (≈240 строк). Других md, wiki и диаграмм в репозитории нет.
+- Документация на входе: только [`README.md`](../../README.md) (197 строк). Других md, wiki и диаграмм в репозитории нет.
 - Обратной связи от новичков нет. Её заменяет собственный опыт онбординга на этом репо в заданиях 1–2: путаница `BASE_URL` / `SESSION_URL`, вопрос, какие переменные обязательны локально.
 
 ## Как собрана «реальность»
@@ -24,7 +24,7 @@ node .claude/skills/doc-drift-audit/scripts/collect-facts.mjs . --out deliverabl
 | Требование к Node | engines зависимостей, `.nvmrc` | Node requirement |
 | Шаги CI, секреты | `.github/workflows/playwright.yml` | CI |
 | Переменные окружения | `.env.example` и реальные `process.env`/`required()` в коде | Env keys, process.env keys |
-| Ключевые классы и функции | `git grep "^export class|function|const"` | Exported symbols |
+| Ключевые классы и функции | `git grep "^export class\|function\|const"` | Exported symbols |
 | История | `git log` | Git history |
 
 Кроме того, вручную прочитаны все исходники (`pages/`, `helpers/`, `data/`, `fixtures/`, `tests/`, конфиги): этого требует описание архитектуры, и так можно проверить выводы Claude на шаге 2.
