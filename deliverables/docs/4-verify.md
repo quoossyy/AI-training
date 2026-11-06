@@ -8,14 +8,14 @@
 
 Первый проход 03.11 (ниже) имел три изъяна: клонировался `main` с наложенными изменениями, а не коммит ветки; `npm run report` не запускался — проверялось только наличие `index.html`; это было подано как «пройден дословно» ([7-hallucinations.md](7-hallucinations.md) #5). 06.11 проход повторён.
 
-- `git clone --branch task/docs` (`6b832e4`) в пустую папку, без `node_modules`, `.env`, `playwright/.auth`.
+- `git clone --branch task/docs` (`6f90a83`) в пустую папку, без `node_modules`, `.env`, `playwright/.auth`.
 - Команды ONBOARDING по порядку в PowerShell. `.env`: `Copy-Item .env.example .env`, затем значения моего стенда.
 - Лог: [runs/onboarding-clean-run-2.log](runs/onboarding-clean-run-2.log), URL и email скрыты.
 
 | Шаг | Команда | Факт 06.11 |
 |---|---|---|
 | 1 | `node -v` | `v24.19.0` ✅ |
-| 2 | `git clone`, список папок | `6b832e4`, все папки и файлы из гайда ✅ |
+| 2 | `git clone`, список папок | `6f90a83`, все папки и файлы из гайда ✅ |
 | 3 | `npm ci` | `added 104 packages`, без `EBADENGINE`, 78 с ✅ |
 | 4 | `npx playwright install chromium` | `exit=0`, 2 с ⚠️ браузер в кэше |
 | 5 | `.env` | `git status` пуст ✅ |

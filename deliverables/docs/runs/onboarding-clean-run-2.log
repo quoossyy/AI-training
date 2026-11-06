@@ -1,11 +1,11 @@
-# ONBOARDING verbatim on a clean clone of task/docs @ 6b832e4, 2026-11-06, PowerShell. URLs and emails redacted.
+# ONBOARDING verbatim on a clean clone of task/docs @ 6f90a83, 2026-11-06, PowerShell. URLs and emails redacted.
 # Step 9: '-- --port 9323' only pins the default port so the script can GET it; report.out in git status is this script's own redirect file, removed after.
 
 ﻿=== 1 node -v  [09:44:35]
 v24.19.0
 
 exit=0  (0s)
-=== 2 git clone (task/docs @ 6b832e4, local fork copy)  [09:44:36]
+=== 2 git clone (task/docs @ 6f90a83, local fork copy)  [09:44:36]
 git : Cloning into 'AI-training'...
 At line:5 char:61
 + ... rk copy)" { git clone --branch task/docs C:\Users\user1\Desktop\aiRea ...
@@ -14,7 +14,7 @@ At line:5 char:61
     + FullyQualifiedErrorId : NativeCommandError
  
 done.
-6b832e4 Update framework docs against the code and add doc-drift-audit skill
+6f90a83 Update framework docs against the code and add doc-drift-audit skill
 
 exit=0  (1s)
 === 2 folders  [09:44:36]
