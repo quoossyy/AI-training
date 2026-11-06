@@ -6,7 +6,7 @@
     "command": "npx playwright test --retries=0 --reporter=list,json --trace retain-on-failure --project=flaky --grep STORE-02: --repeat-each 10 --workers=1",
     "cwd": "C:\\Users\\user1\\AppData\\Local\\Temp\\claude\\c47a99821078cdbf\\9994c121-ea4b-46d9-8255-3b4bc287faf2\\scratchpad\\wt-before",
     "git": {
-      "sha": "dee3b18ecb82a71005c9c3a794b5303443c3c3cf",
+      "sha": "ad9fb76b6f9cd2796e7d920f749067c9f2eb746b",
       "branch": "HEAD",
       "dirty": true,
       "dirtyFiles": [

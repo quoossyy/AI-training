@@ -6,7 +6,7 @@
     "command": "npx playwright test --retries=0 --reporter=list,json --trace retain-on-failure --project=flaky --grep STORE-02: --repeat-each 10 --workers=1",
     "cwd": "C:\\Users\\user1\\Desktop\\aiReal\\AI-training",
     "git": {
-      "sha": "398b6536678cf4b46f3d94034fe7c1d858a02a3a",
+      "sha": "0e10be0b45b271575ef159d08575bd0e67981540",
       "branch": "task/flaky-analysis",
       "dirty": true,
       "dirtyFiles": [
