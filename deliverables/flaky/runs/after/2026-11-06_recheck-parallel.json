@@ -1,0 +1,1729 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\user1\\Desktop\\aiReal\\AI-training\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project=flaky",
+      "--grep",
+      "STORE-02:",
+      "--repeat-each",
+      "40",
+      "--workers=4",
+      "--fully-parallel",
+      "--retries=0",
+      "--trace",
+      "retain-on-failure",
+      "--output",
+      "<scratchpad>/trp",
+      "--reporter=json"
+    ],
+    "configFile": "C:\\Users\\user1\\Desktop\\aiReal\\AI-training\\playwright.config.ts",
+    "rootDir": "C:/Users/user1/Desktop/aiReal/AI-training/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "<scratchpad>/trp",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "setup",
+        "name": "setup",
+        "testDir": "C:/Users/user1/Desktop/aiReal/AI-training/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.setup\\.ts/"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "<scratchpad>/trp",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user1/Desktop/aiReal/AI-training/tests",
+        "testIgnore": [
+          "/store\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "<scratchpad>/trp",
+        "repeatEach": 40,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "flaky",
+        "name": "flaky",
+        "testDir": "C:/Users/user1/Desktop/aiReal/AI-training/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/store\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth\\global.setup.ts",
+      "file": "auth/global.setup.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "authenticate as admin",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "setup",
+              "projectName": "setup",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2479,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-06T06:51:01.347Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "55c05845c2d608359ffd-dea528078d72587e5f75",
+          "file": "auth/global.setup.ts",
+          "line": 5,
+          "column": 6
+        }
+      ]
+    },
+    {
+      "title": "store\\store.spec.ts",
+      "file": "store/store.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Store listing @flaky",
+          "file": "store/store.spec.ts",
+          "line": 23,
+          "column": 6,
+          "specs": [
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3916,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:05.256Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-46211bc8d613a0929737",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4086,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:05.268Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-66323f86b826514a67e7",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2842,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:05.243Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-589a4657c9cf4ad26aab",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3819,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:05.274Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-e512e3a081076b79cc21",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3119,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:10.868Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-9b086c9ea00cb3af8506",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3951,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:11.219Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-e0c77f939706e11c3dc0",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3024,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:11.419Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-fb9c19b45472d7f6e4e8",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4126,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:11.195Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-662322dd83f7949cae99",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3694,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:17.187Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-3c79e73cab0bb57e4a2e",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3424,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:17.324Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-d456d252fc28c5e595d0",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3387,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:17.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-72b9b5ce6ed2ed59dfbb",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3271,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:17.463Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-bebed9ebac754322b0d7",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2261,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:23.818Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-d8e90a04c4e90857915d",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1894,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:23.812Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-b62a6d2cd9a92bd9ca84",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2342,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:23.562Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-03412693c26fb89012f0",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1928,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:24.068Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-356a163100fcb183abd8",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2218,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:28.017Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-2499d38d71c28088c61e",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2581,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:27.635Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-bd26642f320700d6f781",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2506,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:28.003Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-17c8367ac39e7e71c0f0",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2439,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:28.050Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-f7193f2fa4663d12db1e",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2694,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:32.050Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-0d22d564d6614f0dc201",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2618,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:32.107Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-9f5e63308a53f708c305",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2579,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:32.101Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-6df1ef37c40caa7653a5",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2457,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:32.109Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-af4d21039c42d5e203b1",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 3,
+                      "status": "timedOut",
+                      "duration": 60772,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\Desktop\\aiReal\\AI-training\\pages\\store\\store.page.ts",
+                            "column": 21,
+                            "line": 60
+                          },
+                          "message": "Error: page.waitForURL: Test timeout of 30000ms exceeded.\n=========================== logs ===========================\nwaiting for navigation until \"load\"\n============================================================\n\n   at ..\\pages\\store\\store.page.ts:60\n\n  58 |     const before = this.page.url();\n  59 |     await this.sortOptions.filter({ hasText: label }).first().click();\n> 60 |     await this.page.waitForURL((url) => url.href !== before);\n     |                     ^\n  61 |   }\n  62 | }\n  63 |\n    at StorePage.sortBy (C:\\Users\\user1\\Desktop\\aiReal\\AI-training\\pages\\store\\store.page.ts:60:21)\n    at C:\\Users\\user1\\Desktop\\aiReal\\AI-training\\tests\\store\\store.spec.ts:54:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:36.034Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "<scratchpad>\\trp\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat24\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "<scratchpad>\\trp\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat24\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "<scratchpad>\\trp\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat24\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-aad124a44c6441e85661",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3957,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:36.554Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-468c0d61af56e9da7c20",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3226,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:36.068Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-add9efc1569efbd7b97a",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3128,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:36.060Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-ce7b044c19851d5036ea",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2923,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:41.557Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-bcdb8b5d71f49d1580e0",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 30,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2767,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:41.581Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-16552998d3f643a9d9b4",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 31,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2134,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:45.354Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-bb981f8708b30c1d330e",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 33,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2469,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:48.897Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-58cadfdc16f7d2a11ebb",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 32,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2679,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:48.655Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-95a989449bcb729d42b4",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 34,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 42343,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\Desktop\\aiReal\\AI-training\\pages\\store\\store.page.ts",
+                            "column": 21,
+                            "line": 60
+                          },
+                          "message": "Error: page.waitForURL: Test timeout of 30000ms exceeded.\n=========================== logs ===========================\nwaiting for navigation until \"load\"\n============================================================\n\n   at ..\\pages\\store\\store.page.ts:60\n\n  58 |     const before = this.page.url();\n  59 |     await this.sortOptions.filter({ hasText: label }).first().click();\n> 60 |     await this.page.waitForURL((url) => url.href !== before);\n     |                     ^\n  61 |   }\n  62 | }\n  63 |\n    at StorePage.sortBy (C:\\Users\\user1\\Desktop\\aiReal\\AI-training\\pages\\store\\store.page.ts:60:21)\n    at C:\\Users\\user1\\Desktop\\aiReal\\AI-training\\tests\\store\\store.spec.ts:54:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:52.099Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "<scratchpad>\\trp\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat33\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "<scratchpad>\\trp\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat33\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "<scratchpad>\\trp\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat33\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-a0641d3ec15fdbe43f08",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 36,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1615,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:54.139Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-7bec63959f5a1c02f128",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 35,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1743,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:54.099Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-06746ddd222893baeb95",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 37,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1708,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:57.421Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-dfbdc37f5e33ffec08e9",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 38,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2315,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:51:57.548Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-66be7f23c3b23eceaeb7",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": false,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 39,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 33660,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\user1\\Desktop\\aiReal\\AI-training\\pages\\store\\store.page.ts",
+                            "column": 21,
+                            "line": 60
+                          },
+                          "message": "Error: page.waitForURL: Test timeout of 30000ms exceeded.\n=========================== logs ===========================\nwaiting for navigation until \"load\"\n============================================================\n\n   at ..\\pages\\store\\store.page.ts:60\n\n  58 |     const before = this.page.url();\n  59 |     await this.sortOptions.filter({ hasText: label }).first().click();\n> 60 |     await this.page.waitForURL((url) => url.href !== before);\n     |                     ^\n  61 |   }\n  62 | }\n  63 |\n    at StorePage.sortBy (C:\\Users\\user1\\Desktop\\aiReal\\AI-training\\pages\\store\\store.page.ts:60:21)\n    at C:\\Users\\user1\\Desktop\\aiReal\\AI-training\\tests\\store\\store.spec.ts:54:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:52:01.339Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "<scratchpad>\\trp\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat38\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "<scratchpad>\\trp\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat38\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "<scratchpad>\\trp\\store-store-Store-listing--6999e--low-puts-the-T-shirt-first-flaky-repeat38\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-867a4cba0aec48dc1ee6",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "STORE-02: price high-to-low puts the T-shirt first",
+              "ok": true,
+              "tags": [
+                "flaky"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flaky",
+                  "projectName": "flaky",
+                  "results": [
+                    {
+                      "workerIndex": 40,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1436,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-06T06:52:01.497Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08cd5785e14e6ed5ed82-48e95e90cbe2696b2628",
+              "file": "store/store.spec.ts",
+              "line": 39,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-06T06:51:00.352Z",
+    "duration": 105103.195,
+    "expected": 38,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  },
+  "_meta": {
+    "phase": "after",
+    "condition": "recheck-parallel",
+    "manual": "meta added by hand: run made with plain npx playwright test, not run-condition.mjs (no snapshot/versions captured)",
+    "git": {
+      "sha": "398b6536678cf4b46f3d94034fe7c1d858a02a3a",
+      "branch": "task/flaky-analysis",
+      "dirty": false
+    },
+    "env": {
+      "BASE_URL": "https://qa-sandbox.inno.ws"
+    },
+    "command": "test --project=flaky --grep STORE-02: --repeat-each 40 --workers=4 --fully-parallel --retries=0 --trace retain-on-failure --output <scratchpad> --reporter=json",
+    "startedAt": "2026-11-06T06:51:00.352Z",
+    "finishedAt": "2026-11-06T06:52:45.455Z",
+    "exitCode": 1
+  }
+}

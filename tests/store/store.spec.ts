@@ -8,7 +8,9 @@ import { test, expect } from '../../fixtures';
  *
  * Measured behaviour on the inno.ws sandbox (see each test):
  *   STORE-01  passes 8/8  — latent: breaks when the catalogue changes
- *   STORE-02  passes ~40% — genuinely intermittent, the real one
+ *   STORE-02  documented ~40%; measured 0/110 before the fix (race: read
+ *             before the sort response). After the fix ~2-5% residual
+ *             failures in sortBy() — app-side, see deliverables/flaky
  *   STORE-03  passes 8/8  — latent: breaks on a slow network
  *   STORE-04  passes 8/8  — latent: breaks on a cold CI runner
  *   STORE-05  passes 8/8  — breaks on any non-production BASE_URL
@@ -37,32 +39,31 @@ test.describe('Store listing @flaky', () => {
   });
 
   test('STORE-02: price high-to-low puts the T-shirt first', async ({ page, storePage }) => {
-    // ARCHETYPE: race with client-side hydration — the subtle kind.
-    // The sort control is in the server-rendered HTML, so it is clickable
-    // before React has attached its handler. Clicking in that window does
-    // nothing at all: no error, no request, and the list stays unsorted.
-    // The trap is that the obvious guard does not help — waiting for the first
-    // product card to be visible still leaves the race open, because the cards
-    // are server-rendered too (they are in the HTML at 0ms).
-    // Measured: 4 sorted / 6 unsorted over 10 runs with a warm session (~60%
-    // failure), and 2/15 (~13%) cold. This is the genuinely intermittent one.
-    // FIX: wait for interactivity, not paint — assert the sort request's
-    //      response, or poll until the list actually reorders. A fixed timeout
-    //      only hides the race; it does not remove it.
+    // ARCHETYPE: acting and then reading the result once, before it exists.
+    // Originally documented as a hydration race (click swallowed, ~40-60% pass).
+    // Measured on qa-sandbox.inno.ws (deliverables/flaky): 0/110 pass. The sort
+    // request was sent in every inspected failure; the test read the list once,
+    // ~5 ms after the request left and 50-95 ms before the response, so it saw
+    // the old order. Fix: sortBy() waits for the click's result (URL change),
+    // and the order is checked with retrying assertions, not a one-shot read.
+    // Residual (~2-5%, likely app side, open question to the team): the sort request
+    // is sent and answered 200, yet the app never applies it — URL and list stay
+    // unchanged. sortBy() then fails with a waitForURL timeout. Not masked here:
+    // re-clicking or a longer timeout would hide a user-visible defect.
     await storePage.goto();
     await storePage.waitForLoaded();
     await storePage.sortBy('Price: High -> Low');
 
-    // MEASURED (deliverables/flaky): the click always reached the server; the
-    // test failed because it read the list once, ~5 ms after the sort request
-    // left, before the re-sorted list was rendered. Assert the outcome with
-    // retrying assertions instead of a one-shot read.
     await expect(page).toHaveURL(/[?&]sortBy=price_desc(&|$)/);
     await expect(storePage.productTitles.first()).toHaveText('Medusa T-Shirt');
     // The product guarantee of a price sort. All sandbox prices are equal
     // (€10.00), so "T-shirt first" rests on the server's tie-break order —
     // stable today, not promised by the product (question raised to the team).
     const prices = await storePage.productPriceValues();
+    // Guard the order check against passing vacuously: an empty list or an
+    // unparsed price (NaN equals NaN in toEqual) would make it meaningless.
+    expect(prices.length).toBeGreaterThan(1);
+    for (const price of prices) expect(price).toBeGreaterThan(0);
     expect(prices).toEqual([...prices].sort((a, b) => b - a));
   });
 

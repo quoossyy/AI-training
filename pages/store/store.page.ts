@@ -53,6 +53,8 @@ export class StorePage {
    * click — the URL changing to the new `?sortBy=` — instead of returning while
    * the re-sorted list is still in flight. A click that never takes effect
    * fails here with a navigation timeout rather than on a stale list later.
+   * Expects the option to change the URL: choosing the already active option
+   * would wait until the test timeout.
    */
   async sortBy(label: string) {
     const before = this.page.url();
