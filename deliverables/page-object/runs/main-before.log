@@ -1,0 +1,12 @@
+
+Running 7 tests using 1 worker
+
+  ok 1 [setup] › tests\auth\admin.setup.ts:8:6 › open stand session and log in to admin (3.6s)
+  ok 2 [setup] › tests\auth\global.setup.ts:7:6 › open stand session and register customer (2.5s)
+  ok 3 [chromium] › tests\account\profile-navigation.spec.ts:4:7 › Account navigation › ACC-01: profile page opens from the account navigation (1.7s)
+  ok 4 [chromium] › tests\auth\login.spec.ts:8:7 › Login › AUTH-01: customer logs in with valid credentials (1.6s)
+  ok 5 [chromium] › tests\auth\login.spec.ts:16:7 › Login › AUTH-02: error is shown for a wrong password (993ms)
+  ok 6 [admin] › tests\admin\admin.spec.ts:9:9 › Admin › Login › ADM-01: admin logs in with valid credentials (2.4s)
+  ok 7 [admin] › tests\admin\admin.spec.ts:18:7 › Admin › ADM-02: customer registered on the storefront is listed in admin (2.2s)
+
+  7 passed (19.0s)

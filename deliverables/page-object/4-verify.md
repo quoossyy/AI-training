@@ -11,19 +11,28 @@
 | Мутация ACC-03: из ожидаемого списка убрано `first-name-input` | то же, `-g ACC-03`, спека возвращена | 1 failed: `Received + "first-name-input"` — `invalidFields()` читает реальное состояние, а не константу |
 | **Весь набор раннером фреймворка** | `npx playwright test` | **9 passed** — существующие AUTH-01/02, ACC-01, ADM-01/02 не сломались. Лог: [runs/full-suite.log](runs/full-suite.log), скриншот HTML-отчёта: [runs/full-suite-report.png](runs/full-suite-report.png) |
 | Статика | `npm run typecheck`, `npm run lint` | без ошибок (правила ESLint: нет локаторов и `page.goto` в тестах, нет `waitForTimeout`) |
+| **До изменений: весь набор на чистом `main`** (06.11) | `npx playwright test` в worktree `main` @ `6b9b877` | **7 passed** — [runs/main-before.log](runs/main-before.log) |
+| Повторная генерация А и Б на входе из `main` (06.11) | код модели во временной копии `main`, `tsc`, `eslint .`, `npx playwright test tests/account/addresses.spec.ts` | обе: tsc и eslint без ошибок, **3 passed** (setup ×2 + ACC-02). Копия после прогона удалена, см. [5-prompt-check.md](5-prompt-check.md) |
 
-Скриншот страницы со сохранённым адресом (ручная проверка): [runs/manual-after-save.png](runs/manual-after-save.png).
+Скриншот страницы с сохранённым адресом (снят скриптом `states.cjs`, 03.11; имя `manual-*` историческое): [runs/manual-after-save.png](runs/manual-after-save.png).
 
-## Состояния, которых не было в снятом DOM (проверено руками)
+## Состояния, которых не было в снятом DOM
 
-| Состояние | Что увидела | Что сделано |
+Как проверено. 03.11 Claude прошёл эти состояния одноразовым скриптом `states.cjs`: сессия покупателя, пустой
+Save, сохранение адреса, модалка редактирования, подмена ответа на 500. В первой версии отчёта это было названо
+«проверено руками» — неверно, см. [7-hallucinations.md](7-hallucinations.md) #5. 06.11 повторить проход
+интерактивно через Playwright MCP не удалось: для этого агенту нужно прочитать ссылку на сессию стенда (секрет),
+и такое чтение заблокировано настройками безопасности. Ручной проход страницы человеком — пункт для
+подтверждения Hanna Koval (чек-лист ниже).
+
+| Состояние | Что показал скрипт | Что сделано |
 | --- | --- | --- |
 | Список с сохранённым адресом | Карточка `address-container` с `address-name`, `address-address`, `address-postal-city`, `address-province-country`, `address-edit-button`, `address-delete-button` | Локаторы `AddressCard` построены по ним (у модели — «требует DOM») |
 | Сохранение | `POST /dk/account/addresses` → 200, модалка закрывается, карточка появляется | `submit()` ждёт закрытия модалки (`waitFor({ state: 'hidden' })`), тест ждёт карточку web-first ассертом |
 | Пустые обязательные поля | Только нативная HTML5-валидация (`required`, `Please fill out this field.`), модалка остаётся открытой, элементов ошибок с `data-testid` нет; невалидны 5 полей — `country-select` по умолчанию уже `dk` | `invalidFields()` читает `validity` полей (без текста браузера, который зависит от локали) + тест ACC-03, см. правку №10 в [3-edits.md](3-edits.md) |
-| Ошибка сервера | Подменила ответ server action на 500 (`page.route`) → Next.js показывает «Application error: a client-side exception» на всю страницу. Это артефакт мока (тело не RSC), не поведение продукта | Не воспроизводится честно без сбоя на сервере; в тест не включено |
+| Ошибка сервера | Подменила ответ server action на 500 (`page.route`) → Next.js показывает «Application error: a client-side exception» на всю страницу. Вероятно, это артефакт мока (тело не RSC), а не поведение продукта — не проверялось | Честно не воспроизводится без сбоя на сервере; в тест не включено |
 | Модалка редактирования | Свой корень `edit-address-modal` | Конфликта с `add-address-modal` нет |
-| Обёртка модалки | Внешний `role="dialog"` Headless UI нулевого размера → Playwright считает его `hidden` | Корень — `getByTestId('add-address-modal')`, не `getByRole('dialog')` |
+| Обёртка модалки | Внешний `role="dialog"` Headless UI: `boundingBox()` = 1280×0 (замер 06.11) → Playwright считает его `hidden` | Корень — `getByTestId('add-address-modal')`, не `getByRole('dialog')` |
 | Страна по умолчанию | `country-select` уже стоит на `dk` | `selectOption('dk')` оставлен: тест не зависит от значения по умолчанию |
 
 ## Каждый локатор — ровно один элемент
@@ -48,3 +57,15 @@
 
 - `<label for="first_name">` и другие ссылаются на `id`, которого у `input` нет (есть только `name`), поэтому `getByLabel` не работает.
 - У `close-modal-button` нет доступного имени (внутри только SVG, без `aria-label`).
+
+## Ручная проверка страницы (Hanna Koval)
+
+Шаг 4 задания требует открыть страницу руками. Скрипт уже показал эти состояния; человек подтверждает, что видит то же:
+
+1. `/dk/account/addresses` → «New address» → сразу Save: модалка остаётся открытой, браузер подсвечивает
+   незаполненные обязательные поля (5 полей; страна уже выбрана — `DK`).
+2. Заполнить обязательные поля → Save: модалка закрывается, в списке появляется карточка «Имя Фамилия /
+   улица / индекс, город / DK».
+3. «Edit» у карточки: открывается отдельная модалка редактирования.
+
+Результат: _ожидает отметки_ — после проверки здесь ставится «Проверено вручную, Hanna Koval, <дата>».

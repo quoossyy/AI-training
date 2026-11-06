@@ -16,7 +16,7 @@
 | `root` → **`wrapper`** = `getByTestId('addresses-page-wrapper')` | **[изменено]** | модель взяла имя `root` из записи стратегии; у страниц фреймворка (`ProfilePage`, `AccountOverviewPage`) поле называется `wrapper`, `root` — у компонентов (`AccountNav`) |
 | `addAddressButton` = `wrapper.getByTestId('add-address-button')` | — | — |
 | `addAddressModal: AddAddressModal` | — | модалка в портале вне `wrapper` → корень от `page`, модель это верно увидела |
-| `addressCards` = `wrapper.getByTestId('address-container')` | **[добавлено вручную]** | у модели «требует DOM»; testid снят руками после сохранения адреса ([dom/manual-after-save.html](dom/manual-after-save.html)) |
+| `addressCards` = `wrapper.getByTestId('address-container')` | **[добавлено вручную]** | у модели «требует DOM»; testid сняты скриптом после сохранения адреса ([dom/manual-after-save.html](dom/manual-after-save.html)) |
 | `addressCard(address1: string): AddressCard` | **[добавлено вручную]** | карточка выбирается по уникальному значению тестовых данных (`filter({ hasText })` по `address1` из фабрики), без индексов. Это не привязка к тексту интерфейса: значение генерирует тест |
 | компонент `AddressCard`: `root`, `name` (`address-name`), `address` (`address-address`), `postalCity` (`address-postal-city`), `provinceCountry` (`address-province-country`) | **[добавлено вручную]** | у модели «требует DOM» |
 | `AddressCard.editButton`, `deleteButton` | **[вычеркнуто]** | в ACC-02 не используются |
@@ -55,7 +55,7 @@
 
 ### Ответы на открытые вопросы модели
 
-1. DOM карточки — снят вручную, см. выше.
+1. DOM карточки снят скриптом после сохранения адреса, см. выше.
 2. Cancel — вне сценария, вычеркнут.
 3. `wrapper` для страницы, `root` для компонентов (конвенция фреймворка).
 4. В `AccountOverviewPage`, рядом с `openProfile()`.
